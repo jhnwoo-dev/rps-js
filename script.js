@@ -1,20 +1,34 @@
+var wins = 0;
+var ties = 0;
+var losses = 0;
+
+var options = ["r", "p", "s"];
+
+
 //1. Ask use for their selection
 //TODO: prompt user to for their choice (rock, paper, scissors);
 //TODO: EDGE CASE: What happens if the user doesn't pick rock, paper, or scissor?
 //TODO: EDGE CASE: What happens if casing doesn't match?
 //TODO: EDGE CASE: What happens if submit is empty?
 
-function game() {
-    alert("Hello! Let's play rock, paper, scissors!");
-    var userInput = prompt("Please type r, p, or s below:", "r, p, or s");
+var game = function () {
+    var userInput = window.prompt("Let's play Rock, Paper, Scissors!", "Please type r, p, or s.");
 }
+
+//If user pressed cancel
+if (!userInput) {
+    return;
+}
+
+userInput = userInput.toLowerCase();
+
 //2. Generate the computer selection
 //TODO: We need a random selection of rock, paper, or scissors.
 //TODO: Look up a random number generator is js;
-var compOptions = ["r", "p", "s"];
-var compSelect = compOptions[Math.floor(Math.random() * compOptions.length)];
+var compSelect = options[Math.floor(Math.random() * compOptions.length)];
+var compChoice = options[compSelect]
 
-console.log(compSelect);
+window.alert("You chose " + userInput + " and the computer chose " + compChoice);
 
 //3. Compare selections
 //TODO: If use picks r && comp picks s or user pciks && compp picks p, win;
